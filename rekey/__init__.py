@@ -15,29 +15,41 @@ def rekey(obj, key_handle = None, value_handle = None):
     if key_handle == None and value_handle == None:
         raise ValueError
 
-    if key_handle:
+    # determine return type
+    if key_handle or type(obj) == dict:
         res = {}
     else:
         res = []
 
-    for value in obj:
-        if key_handle == None:
-            new_key = None
+    # figure out how to iterate
+    if hasattr(obj, 'items'):
+        _iter = obj.items()
+    else:
+        _iter = obj
+
+
+    for items in _iter:
+        # unpack potential key / value tuple
+        if type(items) == tuple:
+            key, value = items
         else:
+            key, value = None, items
+
+        # set default result values
+        new_key, new_value = key, value
+
+        # grab new key / value
+        if key_handle != None:
             new_key = pull(value, key_handle)
 
-        if value_handle == None:
-            new_value = None
-        else:
+        if value_handle != None:
             new_value = pull(value, value_handle)
 
-        if new_key == None:
+        # store results
+        if type(res) == list:
             res.append(new_value)
         else:
-            if value_handle == None:
-                res[new_key] = value
-            else:
-                res[new_key] = new_value
+            res[new_key] = new_value
 
     return res
 
@@ -75,10 +87,12 @@ def pull(obj, handle):
 
 
 def install():
+    forbiddenfruit.curse(dict, 'rekey', rekey)
     forbiddenfruit.curse(list, 'rekey', rekey)
 
 
 def uninstall():
+    forbiddenfruit.reverse(dict, 'rekey')
     forbiddenfruit.reverse(list, 'rekey')
 
 
