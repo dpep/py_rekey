@@ -40,5 +40,5 @@ git push
 git tag v$VERSION
 git push --tags
 
-rm -rf dist build *.egg-info
 python setup.py sdist upload --sign --identity $IDENTITY
+rm -rf dist build *.egg-info
