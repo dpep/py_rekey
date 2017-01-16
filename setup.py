@@ -29,9 +29,17 @@ __author__ = 'dpepper'
 __version__ = '0.0.1'
 
 import setuptools
+import unittest
 
+
+def discover_tests():
+    return unittest.TestLoader().discover(
+        '.',
+        pattern='*Test.py',
+    )
 
 if __name__ == "__main__":
+
     setuptools.setup(
         name="rekey",
         version=__version__,
@@ -45,6 +53,7 @@ if __name__ == "__main__":
         packages=[
             "rekey",
         ],
+        test_suite = 'setup.discover_tests',
 
         install_requires=[
             'forbiddenfruit',
