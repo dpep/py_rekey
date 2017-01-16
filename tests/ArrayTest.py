@@ -30,6 +30,16 @@ class ArrayTest(unittest.TestCase):
             {'a': 2, 'b': 4, 'c': 6}
         )
 
+    def test_indicies(self):
+        data = [
+            [0, 1, 2],
+            [5, 6, 7],
+        ]
+        self.assertEquals(
+            data.rekey(None, 0),
+            [0, 5]
+        )
+
 
     def test_builtin_fn(self):
         data = [

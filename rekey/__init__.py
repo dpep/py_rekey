@@ -12,7 +12,7 @@ def rekey(obj, key_handle = None, value_handle = None):
     if type(obj) not in [list, dict]:
         raise ValueError
 
-    if not (key_handle or value_handle):
+    if key_handle == None and value_handle == None:
         raise ValueError
 
     if key_handle:
@@ -21,13 +21,23 @@ def rekey(obj, key_handle = None, value_handle = None):
         res = []
 
     for value in obj:
-        new_key = pull(value, key_handle) if key_handle else None
-        new_value = pull(value, value_handle) if value_handle else None
-
-        if new_key:
-            res[new_key] = new_value if value_handle else value
+        if key_handle == None:
+            new_key = None
         else:
+            new_key = pull(value, key_handle)
+
+        if value_handle == None:
+            new_value = None
+        else:
+            new_value = pull(value, value_handle)
+
+        if new_key == None:
             res.append(new_value)
+        else:
+            if value_handle == None:
+                res[new_key] = value
+            else:
+                res[new_key] = new_value
 
     return res
 
@@ -39,6 +49,10 @@ def pull(obj, handle):
 
     # dict key
     if hasattr(obj, 'has_key') and obj.has_key(handle):
+        return obj[handle]
+
+    # list index
+    if type(obj) == list and type(handle) == int:
         return obj[handle]
 
     # object attribute or instance method
