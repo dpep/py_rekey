@@ -32,16 +32,16 @@ def rekey(obj, key_handle = None, value_handle = None):
 
 
 def pull(obj, handle):
+    # dict key
+    if hasattr(obj, 'has_key') and obj.has_key(handle):
+        return obj[handle]
+
     if hasattr(obj, handle):
         attr = getattr(obj, handle)
         if callable(attr):
             return attr()
 
         return attr
-
-    # dict key
-    if hasattr(obj, 'has_key') and obj.has_key(handle):
-        return obj[handle]
 
     # function pointer...pass in value
     if callable(handle):
@@ -55,7 +55,7 @@ def pull(obj, handle):
     if hasattr(__builtin__, handle):
         return getattr(__builtin__, handle)(obj)
 
-    return None
+    raise TypeError('invalid handle: ' + handle)
 
 
 def install():
