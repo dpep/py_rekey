@@ -32,17 +32,12 @@ def rekey(obj, key_handle = None, value_handle = None):
 
 
 def pull(obj, handle):
-    print obj
-
     if hasattr(obj, handle):
         attr = getattr(obj, handle)
         if callable(attr):
             return attr()
 
         return attr
-            # if attr.func_code.co_argcount == 0:
-            #     return attr()
-            # return attr(obj)
 
     # dict key
     if hasattr(obj, 'has_key') and obj.has_key(handle):
