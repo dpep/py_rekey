@@ -42,14 +42,22 @@ class ArrayTest(unittest.TestCase):
             [1, 2, 3]
         )
 
+
+    def test_fn(self):
+        def double(val):
+            return val * 2
+
+        self.assertEquals(
+            [1, 2, 3].rekey(None, double),
+            [2, 4, 6]
+        )
+
+
     def test_lamba(self):
         self.assertEquals(
             [1, 2, 3].rekey(None, lambda x: x * 2),
             [2, 4, 6]
         )
-
-def double(val):
-    return val * 2
 
 
 if __name__ == '__main__':
