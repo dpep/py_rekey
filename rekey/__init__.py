@@ -5,6 +5,7 @@ __version__ = '0.0.1'
 import __builtin__
 import forbiddenfruit
 import sys
+import types
 
 
 def rekey(obj, key_handle = None, value_handle = None):
@@ -32,20 +33,21 @@ def rekey(obj, key_handle = None, value_handle = None):
 
 
 def pull(obj, handle):
+    # function pointer...pass in value
+    if callable(handle):
+        return handle(obj)
+
     # dict key
     if hasattr(obj, 'has_key') and obj.has_key(handle):
         return obj[handle]
 
+    # object attribute or instance method
     if hasattr(obj, handle):
         attr = getattr(obj, handle)
         if callable(attr):
             return attr()
 
         return attr
-
-    # function pointer...pass in value
-    if callable(handle):
-        return handle(obj)
 
     # regular old function
     if globals().has_key(handle):
