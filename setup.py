@@ -34,8 +34,8 @@ import unittest
 
 def discover_tests():
     return unittest.TestLoader().discover(
-        '.',
-        pattern='tests/*Test.py',
+        'tests',
+        pattern='*Test.py',
     )
 
 
