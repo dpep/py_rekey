@@ -35,7 +35,7 @@ if __name__ == "__main__":
     setuptools.setup(
         name="rekey",
         version=__version__,
-        url="https://github.com/d1hotpep/rekey",
+        url="https://github.com/d1hotpep/pyrekey",
         license="MIT",
         author="Daniel Pepper",
         description="enumerable utility",
