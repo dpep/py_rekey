@@ -35,8 +35,9 @@ import unittest
 def discover_tests():
     return unittest.TestLoader().discover(
         '.',
-        pattern='*Test.py',
+        pattern='tests/*Test.py',
     )
+
 
 if __name__ == "__main__":
 

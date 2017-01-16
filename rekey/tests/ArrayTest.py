@@ -23,6 +23,17 @@ class ArrayTest(unittest.TestCase):
             [1, 2, 3]
         )
 
+
+        data = [
+            {'k': [1]},
+            {'k': [1,2]},
+            {'k': [1,2,3]},
+        ]
+        self.assertEquals(
+            data.rekey(None, 'len'),
+            [1, 2, 3]
+        )
+
         # self.assertFalse(LengthCacheable.list())
 
         # res = LengthCacheable.get('abc')
