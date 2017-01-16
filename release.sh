@@ -1,5 +1,7 @@
 #!/bin/bash
 
+PACKAGE='rekey'
+
 if ! git diff-index --quiet HEAD; then
     echo "Can not process, there's uncommited changes."
     exit 1
@@ -33,7 +35,7 @@ cat $CHANGELOG > CHANGES.txt
 $EDITOR CHANGES.txt
 
 sed -i "s/__version__ = '.*'/__version__ = '$VERSION'/" setup.py
-sed -i "s/__version__ = '.*'/__version__ = '$VERSION'/" rekey/__init__.py
+sed -i "s/__version__ = '.*'/__version__ = '$VERSION'/" $PACKAGE/__init__.py
 
 git commit -am "bump version and update changelog"
 git push
@@ -41,4 +43,4 @@ git tag v$VERSION
 git push --tags
 
 python setup.py sdist upload --sign --identity $IDENTITY
-rm -rf dist build *.egg-info
+rm -rf dist build $PACKAGE.egg-info
