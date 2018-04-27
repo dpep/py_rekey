@@ -5,29 +5,29 @@ import sys
 import unittest
 
 sys.path = [ os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')) ] + sys.path
-import rekey
+from rekey import rekey
 
 
 class ArrayTest(unittest.TestCase):
     def test_basic(self):
-        data = [
-            {'k': 1},
-            {'k': 2},
-            {'k': 3},
-        ]
-        self.assertEquals(
-            data.rekey(None, 'k'),
-            [1, 2, 3]
-        )
-
         data = [
             {'k': 'a', 'v': 2},
             {'k': 'b', 'v': 4},
             {'k': 'c', 'v': 6},
         ]
         self.assertEquals(
-            data.rekey('k', 'v'),
-            {'a': 2, 'b': 4, 'c': 6}
+            {'a': 2, 'b': 4, 'c': 6},
+            rekey(data, 'k', 'v')
+        )
+
+        data = [
+            {'k': 1},
+            {'k': 2},
+            {'k': 3},
+        ]
+        self.assertEquals(
+            [1, 2, 3],
+            rekey(data, None, 'k')
         )
 
     def test_indicies(self):
@@ -36,8 +36,8 @@ class ArrayTest(unittest.TestCase):
             [5, 6, 7],
         ]
         self.assertEquals(
-            data.rekey(None, 0),
-            [0, 5]
+            [0, 5],
+            rekey(data, None, 0)
         )
 
 
@@ -48,8 +48,8 @@ class ArrayTest(unittest.TestCase):
             [1, 2, 3],
         ]
         self.assertEquals(
-            data.rekey(None, 'len'),
-            [1, 2, 3]
+            [1, 2, 3],
+            rekey(data, None, len)
         )
 
 
@@ -58,15 +58,15 @@ class ArrayTest(unittest.TestCase):
             return val * 2
 
         self.assertEquals(
-            [1, 2, 3].rekey(None, double),
-            [2, 4, 6]
+            [2, 4, 6],
+            rekey([1, 2, 3], None, double)
         )
 
 
     def test_lamba(self):
         self.assertEquals(
-            [1, 2, 3].rekey(None, lambda x: x * 2),
-            [2, 4, 6]
+            [2, 4, 6],
+            rekey([1, 2, 3], None, lambda x: x * 2)
         )
 
 

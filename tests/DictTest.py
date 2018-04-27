@@ -5,7 +5,7 @@ import sys
 import unittest
 
 sys.path = [ os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')) ] + sys.path
-import rekey
+from rekey import rekey
 
 
 class ArrayTest(unittest.TestCase):
@@ -17,20 +17,20 @@ class ArrayTest(unittest.TestCase):
         }
 
         self.assertEquals(
-            data.rekey(None, 'v'),
-            {
-                'a': 2,
-                'b': 4,
-                'c': 6,
-            }
-        )
-
-        self.assertEquals(
-            data.rekey('k', 'v'),
+            rekey(data, 'k', 'v'),
             {
                 1: 2,
                 3: 4,
                 5: 6,
+            }
+        )
+
+        self.assertEquals(
+            rekey(data, None, 'v'),
+            {
+                'a': 2,
+                'b': 4,
+                'c': 6,
             }
         )
 
@@ -42,10 +42,10 @@ class ArrayTest(unittest.TestCase):
         }
 
         self.assertEquals(
-            data.rekey(None, 0),
+            rekey(data, 0, max),
             {
-                'a': 0,
-                'b': 5,
+                0 : 1,
+                5 : 6
             }
         )
 

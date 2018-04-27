@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 """
-    Cacheable - A read through cache made easy
+    Rekey - Reformat enumerables into dicts, using derived keys / values
 
-    Copyright (c) 2017 Daniel Pepper
+    Copyright (c) 2018 Daniel Pepper
 
     The MIT License (MIT)
 
@@ -26,7 +26,7 @@
 """
 
 __author__ = 'dpepper'
-__version__ = '0.1.0'
+__version__ = '1.0.0'
 
 import setuptools
 import unittest
@@ -39,35 +39,36 @@ def discover_tests():
     )
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
 
     setuptools.setup(
-        name="rekey",
+        name='rekey',
         version=__version__,
-        url="https://github.com/dpep/pyrekey",
-        license="MIT",
-        author="Daniel Pepper",
-        description="enumerable utility",
+        url='https://github.com/dpep/pyrekey',
+        license='MIT',
+        author='Daniel Pepper',
+        description='enumerable utility',
         long_description=open('README.txt').read(),
-        platforms="any",
+        platforms='any',
 
         packages=[
-            "rekey",
+            'rekey',
         ],
-        test_suite = 'setup.discover_tests',
 
         install_requires=[
+            'pluckit'
+        ],
+
+        test_suite = 'setup.discover_tests',
+        tests_require=[
             'forbiddenfruit',
         ],
 
         # https://pypi.python.org/pypi?%3Aaction=list_classifiers
         classifiers=[
-            "License :: OSI Approved :: MIT License",
-            "Development Status :: 2 - Pre-Alpha",
-            "Programming Language :: Python",
-            "Topic :: Utilities",
-            "Topic :: Software Development :: Libraries :: Python Modules",
-            "Operating System :: OS Independent",
-            "Natural Language :: English",
+            'License :: OSI Approved :: MIT License',
+            'Natural Language :: English',
+            'Operating System :: OS Independent',
+            'Topic :: Utilities',
         ],
     )
