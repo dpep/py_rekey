@@ -1,3 +1,9 @@
+v1.0.0, 2018-04-27
+    119cbf0 gc
+    370df15 Update README.md
+    e0a25e6 test some corner cases
+    c12bc54 massive overhaul of library, preparing it for production.  add set support; move builtin modifications into separate, non-default mode; simplify key/value extraction using pluckit library; update and add test coverage
+    9871f55 upgrade release script
 v0.1.0, 2017-01-15
     b8a69af add dict support
     d21c067 0 is falsy in py...guard against mistakes.  add index support
