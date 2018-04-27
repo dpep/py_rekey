@@ -48,7 +48,7 @@ if __name__ == '__main__':
         license='MIT',
         author='Daniel Pepper',
         description='enumerable utility',
-        long_description=open('README.txt').read(),
+        long_description=open('README.md').read(),
         platforms='any',
 
         packages=[
