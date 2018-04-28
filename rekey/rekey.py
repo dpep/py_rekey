@@ -8,6 +8,11 @@ def rekey(obj, key_handle, value_handle = None):
         # nothing to rekey
         return None
 
+    if key_handle is None and value_handle is None:
+        # nothing to do, so bail
+        return obj
+
+    # validate input type
     supported_types = [list, dict, set]
     if not any([ isinstance(obj, t) for t in supported_types ]):
         raise ValueError('type not supported: %s' % type(obj))
