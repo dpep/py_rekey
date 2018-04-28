@@ -64,5 +64,23 @@ class RekeyableTest(unittest.TestCase):
         )
 
 
+    def test_tuple(self):
+        people = RekeyableTuple((
+          { 'id' : 1, 'name' : 'alice', 'age' : 30},
+          { 'id' : 2, 'name' : 'bob', 'age' : 24},
+          { 'id' : 3, 'name' : 'charlie', 'age' : 88},
+        ))
+
+        self.assertEquals(
+            {
+                1 : 'alice',
+                2 : 'bob',
+                3 : 'charlie',
+            },
+            people.rekey('id', 'name'),
+        )
+
+
+
 if __name__ == '__main__':
     unittest.main()

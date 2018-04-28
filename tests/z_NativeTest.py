@@ -19,7 +19,7 @@ import rekey.native
 
 
 class NativeTest(unittest.TestCase):
-    def test_basic(self):
+    def test_list(self):
         people = [
           { 'id' : 1, 'name' : 'alice', 'age' : 30},
           { 'id' : 2, 'name' : 'bob', 'age' : 24},
@@ -35,6 +35,7 @@ class NativeTest(unittest.TestCase):
         )
 
 
+    def test_dict(self):
         coordinates = {
             'home' : {'x' : 1, 'y' : 2},
             'work' : {'x' : 3, 'y' : 6},
@@ -48,6 +49,7 @@ class NativeTest(unittest.TestCase):
         )
 
 
+    def test_set(self):
         Point = namedtuple('Point', ['x', 'y'])  # hashable
         points = set([
             Point(x=1, y=2),
@@ -59,6 +61,23 @@ class NativeTest(unittest.TestCase):
                 6 : 3,
             },
             points.rekey('y', 'x')
+        )
+
+
+    def test_tuple(self):
+        people = (
+          { 'id' : 1, 'name' : 'alice', 'age' : 30},
+          { 'id' : 2, 'name' : 'bob', 'age' : 24},
+          { 'id' : 3, 'name' : 'charlie', 'age' : 88},
+        )
+
+        self.assertEquals(
+            {
+                1 : 'alice',
+                2 : 'bob',
+                3 : 'charlie',
+            },
+            people.rekey('id', 'name'),
         )
 
 
