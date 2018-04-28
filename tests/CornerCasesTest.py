@@ -38,26 +38,29 @@ class CornerCasesTest(unittest.TestCase):
 
 
     def test_null(self):
+        self.assertEquals(None, rekey(None, None))
+        self.assertEquals(None, rekey(None, 123))
+
         data = {
             None : [1, 2],
             'b' : [3, 4],
-            'c' : [None, 5]
+            'c' : None,
         }
         self.assertEquals(
             {
                 None : 2,
                 'b' : 4,
-                'c' : 5,
+                'c' : None,
             },
-            data.rekey(None, 1)
+            rekey(data, None, 1)
         )
         self.assertEquals(
             {
                 1 : 2,
                 3 : 4,
-                None : 5
+                None : None,
             },
-            data.rekey(0, 1)
+            rekey(data, 0, 1)
         )
 
 

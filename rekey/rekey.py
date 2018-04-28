@@ -4,6 +4,10 @@ from pluckit.pluckit import pluckit
 
 
 def rekey(obj, key_handle, value_handle = None):
+    if obj is None:
+        # nothing to rekey
+        return None
+
     supported_types = [list, dict, set]
     if not any([ isinstance(obj, t) for t in supported_types ]):
         raise ValueError('type not supported: %s' % type(obj))
