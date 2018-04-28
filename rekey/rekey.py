@@ -13,7 +13,7 @@ def rekey(obj, key_handle, value_handle = None):
         return obj
 
     # validate input type
-    supported_types = [list, dict, set]
+    supported_types = [ list, dict, set ]
     if not any([ isinstance(obj, t) for t in supported_types ]):
         raise ValueError('type not supported: %s' % type(obj))
 
