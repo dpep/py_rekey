@@ -4,4 +4,8 @@ __version__ = '1.2.0'
 
 from .rekey import rekey
 
+# make available for import
+from .rekeyable import *
+
+
 __all__ = [ 'rekey' ]
