@@ -29,16 +29,12 @@ def rekey(obj, key_handle, value_handle = None):
     else:
         res = []
 
-    # figure out how to iterate
-    if hasattr(obj, 'items'):
-        _iter = obj.items()
-    else:
-        _iter = obj
-
-    # determine how to unpack items into key / value pairs
+    # determine how to iterate and unpack items
     if hasattr(obj, 'keys'):
+        _iter = obj.items()
         kv_fn = lambda items: items
     else:
+        _iter = obj
         # no key, only value
         kv_fn = lambda items: (None, items)
 
