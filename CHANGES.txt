@@ -1,3 +1,6 @@
+v1.2.2, 2018-05-07
+    7339f6d simplify iter and kv func, since theyre paired
+    d72ab6a add list() cast last chance for robustness
 v1.2.1, 2018-05-07
     a404e0c make imports easier
 v1.2.0, 2018-04-27
