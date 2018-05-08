@@ -15,7 +15,13 @@ def rekey(obj, key_handle, value_handle = None):
     # validate input type
     supported_types = [ list, dict, set, tuple ]
     if not any([ isinstance(obj, t) for t in supported_types ]):
-        raise ValueError('type not supported: %s' % type(obj))
+        # last chance, try casting to a list
+        try:
+            obj = list(obj)
+        except TypeError:
+            raise TypeError(
+                'type not supported: %s' % obj.__class__
+            )
 
     # determine return type
     if key_handle or hasattr(obj, 'keys'):

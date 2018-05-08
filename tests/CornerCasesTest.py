@@ -64,6 +64,26 @@ class CornerCasesTest(unittest.TestCase):
         )
 
 
+    def test_cast(self):
+        # iterable but not a list
+        class ListLike():
+            def __iter__(self):
+                data = [
+                    { 'k' : 1, 'v' : 2},
+                    { 'k' : 2, 'v' : 4},
+                ]
+                for v in data:
+                    yield v
+
+        self.assertEquals(
+            {
+                1 : 2,
+                2 : 4,
+            },
+            rekey(ListLike(), 'k', 'v')
+        )
+
+
 
 if __name__ == '__main__':
     unittest.main()
