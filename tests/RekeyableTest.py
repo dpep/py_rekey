@@ -17,7 +17,7 @@ class RekeyableTest(unittest.TestCase):
           { 'id' : 2, 'name' : 'bob', 'age' : 24},
           { 'id' : 3, 'name' : 'charlie', 'age' : 88},
         ])
-        self.assertEquals(
+        self.assertEqual(
             {
                 1 : 'alice',
                 2 : 'bob',
@@ -32,7 +32,7 @@ class RekeyableTest(unittest.TestCase):
             'home' : {'x' : 1, 'y' : 2},
             'work' : {'x' : 3, 'y' : 6},
         })
-        self.assertEquals(
+        self.assertEqual(
             {
                 1 : 2,
                 3 : 6,
@@ -47,7 +47,7 @@ class RekeyableTest(unittest.TestCase):
             Point(name='home', x=1, y=2),
             Point(name='work', x=3, y=6)
         ])
-        self.assertEquals(
+        self.assertEqual(
             {
                 'home' : 1,
                 'work' : 3,
@@ -55,7 +55,7 @@ class RekeyableTest(unittest.TestCase):
             points.rekey('name', 'x')
         )
 
-        self.assertEquals(
+        self.assertEqual(
             {
                 'home' : 3,
                 'work' : 9,
@@ -71,7 +71,7 @@ class RekeyableTest(unittest.TestCase):
           { 'id' : 3, 'name' : 'charlie', 'age' : 88},
         ))
 
-        self.assertEquals(
+        self.assertEqual(
             {
                 1 : 'alice',
                 2 : 'bob',

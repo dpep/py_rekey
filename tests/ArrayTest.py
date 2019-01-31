@@ -15,7 +15,7 @@ class ArrayTest(unittest.TestCase):
             {'k': 'b', 'v': 4},
             {'k': 'c', 'v': 6},
         ]
-        self.assertEquals(
+        self.assertEqual(
             {'a': 2, 'b': 4, 'c': 6},
             rekey(data, 'k', 'v')
         )
@@ -25,7 +25,7 @@ class ArrayTest(unittest.TestCase):
             {'k': 2},
             {'k': 3},
         ]
-        self.assertEquals(
+        self.assertEqual(
             [1, 2, 3],
             rekey(data, None, 'k')
         )
@@ -35,7 +35,7 @@ class ArrayTest(unittest.TestCase):
             [0, 1, 2],
             [5, 6, 7],
         ]
-        self.assertEquals(
+        self.assertEqual(
             [0, 5],
             rekey(data, None, 0)
         )
@@ -47,7 +47,7 @@ class ArrayTest(unittest.TestCase):
             [1, 2],
             [1, 2, 3],
         ]
-        self.assertEquals(
+        self.assertEqual(
             [1, 2, 3],
             rekey(data, None, len)
         )
@@ -57,14 +57,14 @@ class ArrayTest(unittest.TestCase):
         def double(val):
             return val * 2
 
-        self.assertEquals(
+        self.assertEqual(
             [2, 4, 6],
             rekey([1, 2, 3], None, double)
         )
 
 
     def test_lamba(self):
-        self.assertEquals(
+        self.assertEqual(
             [2, 4, 6],
             rekey([1, 2, 3], None, lambda x: x * 2)
         )

@@ -17,36 +17,36 @@ class CornerCasesTest(unittest.TestCase):
             'b' : [3, 4],
         }
 
-        self.assertEquals(data, rekey(data, None))
-        self.assertEquals(data, rekey(data, None, None))
+        self.assertEqual(data, rekey(data, None))
+        self.assertEqual(data, rekey(data, None, None))
 
 
     def test_empty(self):
-        self.assertEquals({}, rekey({}, 'k'))
-        self.assertEquals({}, rekey({}, 'k', 'v'))
-        self.assertEquals({}, rekey({}, None, 'v'))
+        self.assertEqual({}, rekey({}, 'k'))
+        self.assertEqual({}, rekey({}, 'k', 'v'))
+        self.assertEqual({}, rekey({}, None, 'v'))
 
-        self.assertEquals({}, rekey([], 'k'))
-        self.assertEquals({}, rekey([], 'k', 'v'))
-        self.assertEquals([], rekey([], None, 'v'))
+        self.assertEqual({}, rekey([], 'k'))
+        self.assertEqual({}, rekey([], 'k', 'v'))
+        self.assertEqual([], rekey([], None, 'v'))
 
 
     def test_noop(self):
         data = [1, 2, 3]
-        self.assertEquals(data, rekey(data, None))
-        self.assertEquals(data, rekey(data, None, None))
+        self.assertEqual(data, rekey(data, None))
+        self.assertEqual(data, rekey(data, None, None))
 
 
     def test_null(self):
-        self.assertEquals(None, rekey(None, None))
-        self.assertEquals(None, rekey(None, 123))
+        self.assertEqual(None, rekey(None, None))
+        self.assertEqual(None, rekey(None, 123))
 
         data = {
             None : [1, 2],
             'b' : [3, 4],
             'c' : None,
         }
-        self.assertEquals(
+        self.assertEqual(
             {
                 None : 2,
                 'b' : 4,
@@ -54,7 +54,7 @@ class CornerCasesTest(unittest.TestCase):
             },
             rekey(data, None, 1)
         )
-        self.assertEquals(
+        self.assertEqual(
             {
                 1 : 2,
                 3 : 4,
@@ -75,7 +75,7 @@ class CornerCasesTest(unittest.TestCase):
                 for v in data:
                     yield v
 
-        self.assertEquals(
+        self.assertEqual(
             {
                 1 : 2,
                 2 : 4,

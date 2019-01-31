@@ -25,7 +25,7 @@ class NativeTest(unittest.TestCase):
           { 'id' : 2, 'name' : 'bob', 'age' : 24},
           { 'id' : 3, 'name' : 'charlie', 'age' : 88},
         ]
-        self.assertEquals(
+        self.assertEqual(
             {
                 1 : 'alice',
                 2 : 'bob',
@@ -40,7 +40,7 @@ class NativeTest(unittest.TestCase):
             'home' : {'x' : 1, 'y' : 2},
             'work' : {'x' : 3, 'y' : 6},
         }
-        self.assertEquals(
+        self.assertEqual(
             {
                 1 : 2,
                 3 : 6,
@@ -55,7 +55,7 @@ class NativeTest(unittest.TestCase):
             Point(x=1, y=2),
             Point(x=3, y=6)
         ])
-        self.assertEquals(
+        self.assertEqual(
             {
                 2 : 1,
                 6 : 3,
@@ -71,7 +71,7 @@ class NativeTest(unittest.TestCase):
           { 'id' : 3, 'name' : 'charlie', 'age' : 88},
         )
 
-        self.assertEquals(
+        self.assertEqual(
             {
                 1 : 'alice',
                 2 : 'bob',

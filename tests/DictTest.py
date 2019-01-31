@@ -16,7 +16,7 @@ class ArrayTest(unittest.TestCase):
             'c': {'k': 5, 'v': 6},
         }
 
-        self.assertEquals(
+        self.assertEqual(
             rekey(data, 'k', 'v'),
             {
                 1: 2,
@@ -25,7 +25,7 @@ class ArrayTest(unittest.TestCase):
             }
         )
 
-        self.assertEquals(
+        self.assertEqual(
             rekey(data, None, 'v'),
             {
                 'a': 2,
@@ -41,7 +41,7 @@ class ArrayTest(unittest.TestCase):
             'b': [5, 6],
         }
 
-        self.assertEquals(
+        self.assertEqual(
             rekey(data, 0, max),
             {
                 0 : 1,

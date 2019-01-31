@@ -17,7 +17,7 @@ class SetTest(unittest.TestCase):
             Point(name='home', x=1, y=2),
             Point(name='work', x=3, y=6)
         ])
-        self.assertEquals(
+        self.assertEqual(
             {
                 'home' : 1,
                 'work' : 3,
@@ -25,7 +25,7 @@ class SetTest(unittest.TestCase):
             rekey(points, 'name', 'x')
         )
 
-        self.assertEquals(
+        self.assertEqual(
             {
                 'home' : 3,
                 'work' : 9,
