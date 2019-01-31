@@ -1,5 +1,3 @@
-import __builtin__
-
 from pluckit.pluckit import pluckit
 
 
