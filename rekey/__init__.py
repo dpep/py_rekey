@@ -1,5 +1,5 @@
 __author__ = 'dpepper'
-__version__ = '1.2.2'
+__version__ = '1.2.3'
 
 
 from .rekey import rekey

@@ -1,3 +1,6 @@
+v1.2.3, 2019-01-30
+    644467b python3 support
+    9bffffe fix python version
 v1.2.2, 2018-05-07
     7339f6d simplify iter and kv func, since theyre paired
     d72ab6a add list() cast last chance for robustness
@@ -27,5 +30,5 @@ v0.1.0, 2017-01-15
     f6579d3 remove debugging code
     451a943 cleanup afterwards
 v0.0.1, 2017-01-15
-    
+
 
