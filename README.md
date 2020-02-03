@@ -8,7 +8,7 @@ Transform collections into dicts by deriving keys from each item.
 
 
 ### Usage
-```
+```python
 from rekey import rekey
 
 # key a list of records by id
