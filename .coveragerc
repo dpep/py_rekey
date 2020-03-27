@@ -1,2 +1,5 @@
 [run]
 source = rekey
+
+[report]
+omit = rekey/native.py
