@@ -21,9 +21,9 @@ import rekey.native
 class NativeTest(unittest.TestCase):
     def test_list(self):
         people = [
-          { 'id' : 1, 'name' : 'alice', 'age' : 30},
-          { 'id' : 2, 'name' : 'bob', 'age' : 24},
-          { 'id' : 3, 'name' : 'charlie', 'age' : 88},
+          { 'id' : 1, 'name' : 'alice', 'age' : 30 },
+          { 'id' : 2, 'name' : 'bob', 'age' : 24 },
+          { 'id' : 3, 'name' : 'charlie', 'age' : 88 },
         ]
         self.assertEqual(
             {
@@ -37,8 +37,8 @@ class NativeTest(unittest.TestCase):
 
     def test_dict(self):
         coordinates = {
-            'home' : {'x' : 1, 'y' : 2},
-            'work' : {'x' : 3, 'y' : 6},
+            'home' : { 'x' : 1, 'y' : 2 },
+            'work' : { 'x' : 3, 'y' : 6 },
         }
         self.assertEqual(
             {
@@ -66,9 +66,9 @@ class NativeTest(unittest.TestCase):
 
     def test_tuple(self):
         people = (
-          { 'id' : 1, 'name' : 'alice', 'age' : 30},
-          { 'id' : 2, 'name' : 'bob', 'age' : 24},
-          { 'id' : 3, 'name' : 'charlie', 'age' : 88},
+          { 'id' : 1, 'name' : 'alice', 'age' : 30 },
+          { 'id' : 2, 'name' : 'bob', 'age' : 24 },
+          { 'id' : 3, 'name' : 'charlie', 'age' : 88 },
         )
 
         self.assertEqual(
