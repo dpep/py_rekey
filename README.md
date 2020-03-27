@@ -65,4 +65,6 @@ MyDict({
 ```
 
 ----
+[![Build Status](https://travis-ci.org/dpep/py_rekey.svg?branch=master)](https://travis-ci.org/dpep/py_rekey)
+[![Coverage Status](https://coveralls.io/repos/github/dpep/py_rekey/badge.svg?branch=master)](https://coveralls.io/github/dpep/py_rekey?branch=master)
 [![installs](https://img.shields.io/pypi/dm/rekey.svg?label=installs)](https://pypi.org/project/rekey)
