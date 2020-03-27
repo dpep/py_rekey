@@ -3,7 +3,6 @@ python:
   - "3.7"
 install:
   - pip install coveralls
-  - pip install forbiddenfruit
 script:
   - coverage run --source=rekey setup.py test
 after_success:
