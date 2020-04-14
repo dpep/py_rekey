@@ -1,6 +1,6 @@
 rekey
 ======
-Transform collections into dicts by deriving keys from each item.
+Transform collections into dictionaries.
 
 
 ### Install
